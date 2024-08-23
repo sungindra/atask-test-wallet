@@ -1,15 +1,16 @@
 class SessionsController < ApplicationController
+  def new
+    @user = User.new
+  end
+
   def create
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
-      if params[:remember_me]
-        cookies.permanent[:remember_token] = user.remember_token
-      else
-        session[:user_id] = user.id
-      end
-      render json: user, status: :ok
+      session[:user_id] = user.id
+      redirect_to root_path
     else
-      render json: { error: 'Invalid email or password' }, status: :unauthorized
+      flash[:alert] = "Login failed"
+      redirect_to new_user_session_path
     end
   end
 

@@ -7,5 +7,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+  get  '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
+  delete '/signin' to: 'sessions#delete'
 end
