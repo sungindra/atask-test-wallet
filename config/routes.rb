@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
-  resources :sessions, only: [:create, :destroy]
-  get  '/signin', to: 'sessions#new'
+  resources :sessions, only: :create
+  get '/signin', to: 'sessions#new'
+  delete '/signout', to: 'sessions#destroy'
+  resources :wallet, only: :index
 end

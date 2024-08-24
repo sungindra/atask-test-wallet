@@ -1,10 +1,10 @@
 h1 Sign In
-= form_with model: @user, url: sessions_path do |f|
+= form_with url: sessions_path do |f|
   .form-inputs
-    = f.label :email
-    = f.text_field :email
+    span email
+    = f.email_field :email, required: true
     br
-    = f.label :password
-    = f.password_field :password
+    span password
+    = f.password_field :password, required: true
     br
-    = f.submit 'Login' 
+    = f.submit 'Sign In' 
