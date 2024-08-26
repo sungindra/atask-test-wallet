@@ -1,5 +1,6 @@
 = link_to "Sign Out", signout_path, data: { turbo_method: :delete }
 h1 Welcome
 = current_user.email
-p balance:
-= @wallet.balance 
+p 
+  span balance:&nbsp;
+  = '$' + @wallet.balance.to_s

@@ -7,8 +7,17 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
   resources :sessions, only: :create
   get '/signin', to: 'sessions#new'
   delete '/signout', to: 'sessions#destroy'
+  
   resources :wallet, only: :index
+
+  get '/withdraw', to: 'transactions#withdraw_form'
+  post '/withdraw', to: 'transaction#withdraw'
+  get '/deposit', to: 'transactions#deposit_form'
+  post '/deposit', to: 'transactions#deposit'
+  get '/transfer', to: 'transactions#transfer_form'
+  post '/transfer', to: 'transactions#transfer'
 end

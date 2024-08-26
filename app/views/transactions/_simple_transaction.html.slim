@@ -1,0 +1,7 @@
+h1 = action
+= form_with url: url do |f|
+  .form-inputs
+    = f.label :amount
+    = f.text_field :amount, required: true
+    br
+    = f.submit action

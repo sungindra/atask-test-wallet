@@ -1,0 +1,10 @@
+h1 Transfer
+= form_with url: transfer_path do |f|
+  .form-inputs
+    = f.label :amount
+    = f.text_field :amount, required: true
+    br
+    = f.label :recepient_wallet_id
+    = f.text_field :recepient_id, required: true
+    br
+    = f.submit 'Transfer'

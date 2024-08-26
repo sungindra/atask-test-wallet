@@ -1,0 +1,17 @@
+# == Schema Information
+#
+# Table name: transactions
+#
+#  id               :bigint           not null, primary key
+#  amount           :integer
+#  transaction_type :string
+#  wallet_id        :bigint
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+one:
+  amount: 1
+
+two:
+  amount: 1
